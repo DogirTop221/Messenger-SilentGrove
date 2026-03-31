@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Node
+node_modules/
+dist/
+php/
+
+# Environment
+.env
+.env.local
+backend/.env
+backend/.env.local
+
+# Logs
+*.log
+
+# Local database and cache
+backend/storage/database.sqlite
+backend/storage/*.sqlite
+backend/storage/*.sqlite-*
+
+# Temporary runtime files
+tmp/

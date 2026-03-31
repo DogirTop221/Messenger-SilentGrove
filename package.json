@@ -1,0 +1,69 @@
+{
+  "name": "messenger-silentgrove-desktop",
+  "version": "1.1.1",
+  "description": "Windows desktop wrapper for Messenger SilentGrove",
+  "main": "electron/main.js",
+  "productName": "Messenger SilentGrove",
+  "author": "SilentGrove",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node electron/run-electron.js",
+    "prepare:php": "node scripts/setup-php-runtime.js",
+    "build": "electron-builder --win nsis",
+    "build:dir": "electron-builder --win dir"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.silentgrove.messenger",
+    "productName": "Messenger SilentGrove",
+    "asar": false,
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "backend/**/*",
+      "php/**/*",
+      "renderer/**/*",
+      "README.md",
+      "package.json"
+    ],
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "menuCategory": "SilentGrove",
+      "shortcutName": "Messenger SilentGrove",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeader": "installerHeader.bmp",
+      "installerSidebar": "installerSidebar.bmp",
+      "uninstallerSidebar": "uninstallerSidebar.bmp",
+      "include": "installer.nsh",
+      "displayLanguageSelector": true,
+      "installerLanguages": [
+        "ru_RU",
+        "en_US"
+      ],
+      "language": "1049",
+      "artifactName": "Messenger-SilentGrove-Setup-${version}.${ext}"
+    }
+  }
+}
